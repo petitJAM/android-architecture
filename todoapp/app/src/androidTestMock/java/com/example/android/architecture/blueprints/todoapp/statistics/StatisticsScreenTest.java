@@ -30,6 +30,7 @@ import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.example.android.architecture.blueprints.todoapp.Injection;
+import com.example.android.architecture.blueprints.todoapp.MainActivity;
 import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.data.Task;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository;
@@ -55,8 +56,8 @@ public class StatisticsScreenTest {
      * blocks of Junit tests.
      */
     @Rule
-    public ActivityTestRule<StatisticsActivity> mStatisticsActivityTestRule =
-            new ActivityTestRule<>(StatisticsActivity.class, true, false);
+    public ActivityTestRule<MainActivity> mStatisticsActivityTestRule =
+            new ActivityTestRule<>(MainActivity.class, true, false);
 
     /**
      * Setup your test fixture with a fake task id. The {@link TaskDetailActivity} is started with

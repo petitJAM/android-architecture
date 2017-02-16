@@ -21,6 +21,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
+import com.example.android.architecture.blueprints.todoapp.R;
+
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
@@ -33,12 +35,28 @@ public class ActivityUtils {
      * performed by the {@code fragmentManager}.
      *
      */
-    public static void addFragmentToActivity (@NonNull FragmentManager fragmentManager,
-                                              @NonNull Fragment fragment, int frameId) {
+    public static void addFragmentToActivity(@NonNull FragmentManager fragmentManager,
+                                             @NonNull Fragment fragment,
+                                             int frameId) {
         checkNotNull(fragmentManager);
         checkNotNull(fragment);
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.add(frameId, fragment);
+        transaction.commit();
+    }
+
+    /**
+     * The {@code fragment} replaces an existing {@link Fragment} in the container view with id
+     * {@code frameId}. The operation is performed by the {@code fragmentManager}.
+     *
+     */
+    public static void replaceFragmentInActivity(@NonNull FragmentManager fragmentManager,
+                                                 @NonNull Fragment fragment,
+                                                 int frameId) {
+        checkNotNull(fragmentManager);
+        checkNotNull(fragment);
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(frameId, fragment);
         transaction.commit();
     }
 

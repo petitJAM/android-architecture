@@ -26,6 +26,7 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.example.android.architecture.blueprints.todoapp.Injection;
+import com.example.android.architecture.blueprints.todoapp.MainActivity;
 import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.TestUtils;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
@@ -79,8 +80,8 @@ public class TasksScreenTest {
      * blocks of Junit tests.
      */
     @Rule
-    public ActivityTestRule<TasksActivity> mTasksActivityTestRule =
-            new ActivityTestRule<TasksActivity>(TasksActivity.class) {
+    public ActivityTestRule<MainActivity> mTasksActivityTestRule =
+            new ActivityTestRule<MainActivity>(MainActivity.class) {
 
                 /**
                  * To avoid a long list of tasks and the need to scroll through the list to find a
