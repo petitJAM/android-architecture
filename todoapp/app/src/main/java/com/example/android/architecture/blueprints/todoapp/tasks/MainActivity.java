@@ -1,10 +1,9 @@
-package com.example.android.architecture.blueprints.todoapp;
+package com.example.android.architecture.blueprints.todoapp.tasks;
 
 import android.os.Bundle;
 import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.NavigationView;
 import android.support.test.espresso.IdlingResource;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -14,11 +13,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
+import com.example.android.architecture.blueprints.todoapp.Injection;
+import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.statistics.StatisticsFragment;
 import com.example.android.architecture.blueprints.todoapp.statistics.StatisticsPresenter;
-import com.example.android.architecture.blueprints.todoapp.tasks.TasksFilterType;
-import com.example.android.architecture.blueprints.todoapp.tasks.TasksFragment;
-import com.example.android.architecture.blueprints.todoapp.tasks.TasksPresenter;
 import com.example.android.architecture.blueprints.todoapp.util.ActivityUtils;
 import com.example.android.architecture.blueprints.todoapp.util.EspressoIdlingResource;
 
@@ -33,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.nav_view) NavigationView mNavigationView;
     @BindView(R.id.contentFrame) FrameLayout mContentFrame;
 
-    private ActionBar mSupportActionBar;
     private Menu mNavViewMenu;
 
     private TasksFragment mTasksFragment;
@@ -49,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Set up the toolbar.
         setSupportActionBar(mToolbar);
-        mSupportActionBar = getSupportActionBar();
-        if (mSupportActionBar != null) {
-            mSupportActionBar.setTitle(getString(R.string.app_name));
-            mSupportActionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
-            mSupportActionBar.setDisplayHomeAsUpEnabled(true);
+        ActionBar supportActionBar = getSupportActionBar();
+        if (supportActionBar != null) {
+            supportActionBar.setTitle(getString(R.string.app_name));
+            supportActionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
+            supportActionBar.setDisplayHomeAsUpEnabled(true);
         }
 
         mTasksFragment = (TasksFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
@@ -92,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

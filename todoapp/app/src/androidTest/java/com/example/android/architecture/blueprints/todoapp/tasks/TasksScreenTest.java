@@ -26,7 +26,6 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.example.android.architecture.blueprints.todoapp.Injection;
-import com.example.android.architecture.blueprints.todoapp.MainActivity;
 import com.example.android.architecture.blueprints.todoapp.R;
 import com.example.android.architecture.blueprints.todoapp.TestUtils;
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksDataSource;
